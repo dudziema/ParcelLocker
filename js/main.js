@@ -1,4 +1,13 @@
-
+function collectPackage(){
+    const modular =document.getElementById("modular")
+    modular.innerHTML = `
+    <h2><strong>Paczka odebrana!</strong</h2>
+    <p>Zrobiłeś to w czasie 10 sekund! Czy mozemy zrobić dla Ciebie coś jeszcze?</p>
+    <div class="modular__buttons">
+    <button>To wszystko na dziś</button>
+    <button>Odbierz kolejną paczkę</button>
+    </div>`
+}
 
 function createNewButton(){
     const buttonContainer =document.getElementById("button")
