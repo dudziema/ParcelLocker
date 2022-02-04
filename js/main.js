@@ -1,12 +1,12 @@
 function collectPackage(){
-    const modular =document.getElementById("modular")
+    const modal =document.getElementById("modal")
     const overlay =document.getElementById("overlay")
-    modular.innerHTML = `
+    modal.innerHTML = `
     <h2><strong>Paczka odebrana!</strong</h2>
-    <p>Zrobiłeś to w czasie 10 sekund! Czy mozemy zrobić dla Ciebie coś jeszcze?</p>
-    <div class="modular__buttons">
-    <button>To wszystko na dziś</button>
-    <button>Odbierz kolejną paczkę</button>
+    <p class="modal__info">Zrobiłeś to w czasie 10 sekund! Czy mozemy zrobić dla Ciebie coś jeszcze?</p>
+    <div class="modal__buttons">
+    <button class="modal__button">To wszystko na dziś</button>
+    <button class="modal__button">Odbierz kolejną paczkę</button>
     </div>`
     overlay.style["visibility"] ="visible";
     overlay.style["opacity"]="1";

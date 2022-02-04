@@ -12,6 +12,8 @@ body{
     margin:0;
 }
 
+
+
 body::before{
     content:"";
     position:fixed;
@@ -40,6 +42,14 @@ font-size: 3rem;
   margin-top: 0rem;
   margin-bottom: 0.5rem;
   text-align:center;
+}
+
+h2{
+    font-size:3rem;
+    padding:1rem;
+    margin: 0 0 0.5rem 0;
+    text-align:center;
+
 }
 p{
     text-align: center;
@@ -152,7 +162,7 @@ input[type=number] {
     opacity: 1;
   }
 
-#modular{
+#modal{
     margin: 70px auto;
     padding: 20px;
     background: #fff;
@@ -160,4 +170,17 @@ input[type=number] {
     width: 30%;
     position: relative;
     transition: all 5s ease-in-out;
+}
+.modal__info{
+    font-size: 1rem;
+    font-weight:400;
+    margin-top:3rem;
+}
+.modal__button{
+    font-size: 1rem;
+    font-weight:800;
+}
+.modal__buttons{
+    display: flex;
+    justify-content: space-between;  
 }
