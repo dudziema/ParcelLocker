@@ -45,7 +45,7 @@ font-size: 3rem;
 }
 
 h2{
-    font-size:3rem;
+
     padding:1rem;
     margin: 0 0 0.5rem 0;
     text-align:center;
@@ -72,7 +72,7 @@ button{
     cursor: pointer;
     text-align: center;
     text-decoration:none;
-    border-radius: 15px;
+
     padding: 0.75rem;
     margin: 3rem;
 
@@ -82,16 +82,66 @@ button:disabled{
     cursor:not-allowed;
 
 }
-@media(min-width:576){
-    .container{
-        max-width:540px;
-    }
-}
-@media (min-width: 768px) {
+
+
+@media (min-width: 76em) {
     .container {
-      max-width: 720px;
+        max-width: 720px;
+      }
+      .h2{
+        font-size:3rem;
     }
-}
+    #modal{
+        margin: 70px auto;
+        padding: 20px;
+        max-width: 30%;
+    }
+    button{
+        border-radius: 15px;
+    }
+
+  }
+  @media (max-width: 75em) {
+    .container{
+        max-width:50rem;
+    }
+    #modal{
+        margin: 70px auto;
+        padding: 20px;
+        max-width: 30%;
+    }
+    button{
+        border-radius: 15px;
+    }
+  }
+  @media (max-width: 50em) {
+    html {
+      font-size: 60%;
+    }
+    #modal{
+        padding: 1rem;
+        max-width:80%;
+
+    }
+    button{
+        border-radius: 5px;
+    }
+  }
+  @media (max-width: 28.75em) {
+    html {
+      font-size: 55%;
+    }
+    #modal{
+        padding: 1rem;
+        max-width:100%;
+    }
+    button{
+        border-radius: 5px;
+    }
+  }
+
+
+
 .container__inputs{
 
     display: flex;
@@ -163,11 +213,9 @@ input[type=number] {
   }
 
 #modal{
-    margin: 70px auto;
-    padding: 20px;
+
     background: #fff;
     border-radius: 5px;
-    width: 30%;
     position: relative;
     transition: all 5s ease-in-out;
 }
