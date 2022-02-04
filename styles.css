@@ -69,6 +69,8 @@ button{
 }
 button:disabled{
     background:rgb(105, 103, 103);
+    cursor:not-allowed;
+
 }
 @media(min-width:576){
     .container{
@@ -106,6 +108,21 @@ input{
     border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
+.inputs__phone--invalid, 
+.inputs__code--invalid{
+    animation: shake 0.2s ease-in-out 0s 2;
+    box-shadow: 0 0 0.5em red;
+
+}
+@keyframes shake {
+    0% { margin-left: 0rem; }
+    25% { margin-left: 0.5rem; }
+    75% { margin-left: -0.5rem; }
+    100% { margin-left: 0rem; }
+  }
+
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
