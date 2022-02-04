@@ -1,5 +1,6 @@
 function collectPackage(){
     const modular =document.getElementById("modular")
+    const overlay =document.getElementById("overlay")
     modular.innerHTML = `
     <h2><strong>Paczka odebrana!</strong</h2>
     <p>Zrobiłeś to w czasie 10 sekund! Czy mozemy zrobić dla Ciebie coś jeszcze?</p>
@@ -7,7 +8,10 @@ function collectPackage(){
     <button>To wszystko na dziś</button>
     <button>Odbierz kolejną paczkę</button>
     </div>`
+    overlay.style["visibility"] ="visible";
+    overlay.style["opacity"]="1";
 }
+
 
 function createNewButton(){
     const buttonContainer =document.getElementById("button")
