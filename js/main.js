@@ -1,5 +1,5 @@
 function goToHomePage() {
-  const modal = document.getElementById("modal");
+  const modal = document.getElementById("modal-content");
   const overlay = document.getElementById("overlay");
   const inputContainer = document.getElementById("inputs");
   const containerButtonDiv = document.getElementById("button");
@@ -8,29 +8,35 @@ function goToHomePage() {
 
   overlay.style["visibility"] = "hidden";
   overlay.style["opacity"] = "0";
+
   inputContainer.innerHTML = "";
   containerButtonDiv.innerHTML = "";
   containerButtonDiv.innerHTML = `<button onclick="renderNewInputs()">Zaczynamy!</button>`;
 }
 
 function collectNextPackage() {
-  const modal = document.getElementById("modal");
+  const modal = document.getElementById("modal-content");
   const overlay = document.getElementById("overlay");
   let inputPhone = document.getElementById("phone-input");
   let inputCode = document.getElementById("code-input");
-
-  modal.innerHTML = "";
+  let buttonContainer = document.getElementById("button");
   overlay.style["visibility"] = "hidden";
   overlay.style["opacity"] = "0";
   inputPhone.value = "";
   inputCode.value = "";
+  buttonContainer.value="";
+  createNewButton()
+
+  modal.innerHTML = "";
+
 }
 
 function collectPackage() {
-  const modal = document.getElementById("modal");
-  const overlay = document.getElementById("overlay");
-//   const buttonCollect = document.getElementById("button-collect");
-//   if (!buttonCollect.getAttribute(disabled)){
+
+  const modal = document.getElementById("modal-content");
+  
+  document.getElementById("loader").style.display = "none";
+//   const overlay = document.getElementById("overlay");
     modal.innerHTML = `
     <h2><strong>Paczka odebrana!</strong</h2><br>
     <p class="modal__info">Zrobiłeś to w czasie 10 sekund! Czy mozemy zrobić dla Ciebie coś jeszcze?</p>
@@ -38,15 +44,31 @@ function collectPackage() {
     <button class="modal__button" onclick="goToHomePage()">To wszystko na dziś</button>
     <button class="modal__button" onclick="collectNextPackage()">Odbierz kolejną paczkę</button>
     </div>`;
-  overlay.style["visibility"] = "visible";
-  overlay.style["opacity"] = "1";
-//   }
+//   overlay.style["visibility"] = "visible";
+//   overlay.style["opacity"] = "1";
 }
+
+function loader(){
+    const overlay = document.getElementById("overlay");
+    document.getElementById("loader").style.display = "flex"
+    overlay.style["visibility"] = "visible";
+    overlay.style["opacity"] = "1";
+    const  promise= new Promise((resolve) =>{
+        window.setTimeout(
+            function() {
+                // We fulfill the promise !
+                resolve(collectPackage());
+            }, Math.random() * 2000 + 1000);
+
+    })
+}
+
+
 
 function createNewButton() {
   const buttonContainer = document.getElementById("button");
   buttonContainer.innerHTML = "";
-  buttonContainer.innerHTML = `<button id="button-collect" disabled onclick="collectPackage()">Odbierz paczkę</button>`; //setting button state to disabled
+  buttonContainer.innerHTML = `<button id="button-collect" disabled onclick="loader()">Odbierz paczkę</button>`; //setting button state to disabled
 }
 
 function renderNewInputs() {
@@ -133,6 +155,7 @@ function renderNewInputs() {
   }
 
   function setButtonStatus(status) {
+    let button = document.getElementById("button-collect");
     const validatedPhone = regexPhone.exec(inputPhone.value);
     const validatedCode = regexCode.exec(inputCode.value);
     if (status && validatedCode !== null & validatedPhone !== null) {
