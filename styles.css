@@ -67,7 +67,9 @@ button{
     margin: 3rem;
 
 }
-
+button:disabled{
+    background:rgb(105, 103, 103);
+}
 @media(min-width:576){
     .container{
         max-width:540px;
@@ -77,4 +79,41 @@ button{
     .container {
       max-width: 720px;
     }
+}
+.container__inputs{
+
+    display: flex;
+    justify-content: space-between;
+    margin: 3rem;
+  
+}
+.container__inputs label{
+    display: flex;
+    flex-wrap: wrap;
+    margin:0;
+    font-size:1rem;
+}
+
+input{
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    margin-bottom: inherit;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
