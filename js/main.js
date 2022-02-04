@@ -1,12 +1,46 @@
+
+function goToHomePage(){
+    const modal =document.getElementById("modal")
+    const overlay =document.getElementById("overlay")
+    const inputContainer = document.getElementById("inputs");
+    const containerButtonDiv = document.getElementById("button");
+
+    modal.innerHTML = "";
+
+    overlay.style["visibility"] ="hidden";
+    overlay.style["opacity"]="0";
+    inputContainer.innerHTML="";
+    containerButtonDiv.innerHTML ="";
+    containerButtonDiv.innerHTML=`<button onclick="renderNewInputs()">Zaczynamy!</button>`;
+
+
+}
+
+
+function collectNextPackage(){
+    const modal =document.getElementById("modal")
+    const overlay =document.getElementById("overlay")
+    let inputPhone = document.getElementById("phone-input");
+    let inputCode =document.getElementById("code-input");
+
+    modal.innerHTML = "";
+    overlay.style["visibility"] ="hidden";
+    overlay.style["opacity"]="0";
+    inputPhone.value ="";
+    inputCode.value="";
+
+}
+
+
 function collectPackage(){
     const modal =document.getElementById("modal")
     const overlay =document.getElementById("overlay")
     modal.innerHTML = `
-    <h2><strong>Paczka odebrana!</strong</h2>
+    <h2><strong>Paczka odebrana!</strong</h2><br>
     <p class="modal__info">Zrobiłeś to w czasie 10 sekund! Czy mozemy zrobić dla Ciebie coś jeszcze?</p>
     <div class="modal__buttons">
-    <button class="modal__button">To wszystko na dziś</button>
-    <button class="modal__button">Odbierz kolejną paczkę</button>
+    <button class="modal__button" onclick="goToHomePage()">To wszystko na dziś</button>
+    <button class="modal__button" onclick="collectNextPackage()">Odbierz kolejną paczkę</button>
     </div>`
     overlay.style["visibility"] ="visible";
     overlay.style["opacity"]="1";
@@ -16,7 +50,7 @@ function collectPackage(){
 function createNewButton(){
     const buttonContainer =document.getElementById("button")
     buttonContainer.innerHTML ="";
-    buttonContainer.innerHTML =`<button id="buttons" disabled onclick="collectPackage()">Odbierz paczkę</button>`; //setting button state to disabled
+    buttonContainer.innerHTML =`<button id="button-collect" disabled onclick="collectPackage()">Odbierz paczkę</button>`; //setting button state to disabled
 
 
 }
@@ -42,8 +76,8 @@ function renderNewInputs(){
 
 
     let inputPhone = document.getElementById("phone-input");
-    let inputCode =document.getElementById("code-input")
-    let button = document.getElementById("buttons"); 
+    let inputCode =document.getElementById("code-input");
+    let button = document.getElementById("button-collect"); 
     let errorMsgPhone = document.getElementById("error-message-phone"); 
     let errorMsgCode = document.getElementById("error-message-code"); 
 
